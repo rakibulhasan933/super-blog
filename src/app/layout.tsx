@@ -18,9 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        {children}
-        <Footer />
+        <section className='mx-[140px] py-5'>
+          <Navbar />
+          {children}
+          <Footer />
+        </section>
       </body>
     </html>
   )
