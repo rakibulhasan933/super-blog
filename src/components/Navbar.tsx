@@ -19,7 +19,7 @@ function Navbar() {
 							<li className='hover:font-semibold hover:text-green-500'><Link href="/about">About</Link></li>
 							<li className='hover:font-semibold hover:text-green-500'><Link href="/contact">Contact</Link></li>
 							<li className='hover:font-semibold hover:text-green-500'><Link href="/dashboard">DashBoard</Link></li>
-							<li className='font-bold text-white bg-green-500 rounded group'><Link href="/login">
+							<li className='font-bold text-white rounded bg-gradient-to-r from-green-400 to-blue-500 group'><Link href="/login">
 								Login
 							</Link></li>
 						</ul>
@@ -34,7 +34,7 @@ function Navbar() {
 						<li className='hover:font-semibold hover:text-green-500'><Link href="/about">About</Link></li>
 						<li className='hover:font-semibold hover:text-green-500'><Link href="/contact">Contact</Link></li>
 						<li className='hover:font-semibold hover:text-green-500'><Link href="/dashboard">DashBoard</Link></li>
-						<li className='font-bold text-white bg-green-500 rounded group'><Link href="/login">
+						<li className='font-bold text-white rounded bg-gradient-to-r from-green-400 to-blue-500 group'><Link href="/login">
 							Login
 						</Link></li>
 					</ul>
