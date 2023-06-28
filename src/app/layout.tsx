@@ -1,9 +1,9 @@
 import Navbar from '@/components/Navbar'
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Manrope } from 'next/font/google'
 import Footer from '@/components/Footer'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Manrope({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Create Next App',
