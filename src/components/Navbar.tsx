@@ -39,17 +39,15 @@ function Navbar() {
 	return (
 		<div>
 			<div className='flex flex-row items-center justify-between'>
-				<div className="flex ">
-					<h2 className="">The Thoughtful Pen</h2>
-				</div>
+				<h2 className="text-2xl font-bold">The Thoughtful Pen</h2>
 				<div className="">
 					<div className="flex flex-row items-center gap-5">
 						<div className="flex gap-5">
 							{
-								links.map((link) => <Link key={link.id} href={link.url} >{link.title}</Link>)
+								links.map((link) => <Link key={link.id} href={link.url} className='text-base font-medium hover:text-green-600' >{link.title}</Link>)
 							}
 						</div>
-						<div className="">
+						<div className="px-4 py-2 text-lg font-medium text-white bg-green-500 rounded hover:text-xl">
 							<button>Login</button>
 						</div>
 					</div>
