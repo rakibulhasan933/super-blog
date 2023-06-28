@@ -1,39 +1,8 @@
+"use client";
 import Link from 'next/link'
 import React from 'react'
+import { BsArrowRight } from 'react-icons/bs';
 
-const links = [
-	{
-		id: 0,
-		title: "Home",
-		url: "/"
-	},
-	{
-		id: 1,
-		title: "Portfolio",
-		url: "/portfolio"
-	},
-	{
-		id: 2,
-		title: "Blog",
-		url: "/blog"
-	},
-	{
-		id: 3,
-		title: "About",
-		url: "/about"
-	},
-	{
-		id: 4,
-		title: "Contact",
-		url: "/contact"
-	},
-	{
-		id: 5,
-		title: "DashBoard",
-		url: "/dashboard"
-	},
-
-]
 
 function Navbar() {
 	return (
@@ -64,7 +33,9 @@ function Navbar() {
 						<li className='hover:font-semibold hover:text-green-500'><Link href="/about">About</Link></li>
 						<li className='hover:font-semibold hover:text-green-500'><Link href="/contact">Contact</Link></li>
 						<li className='hover:font-semibold hover:text-green-500'><Link href="/dashboard">DashBoard</Link></li>
-						<li className='font-bold text-white bg-green-500 rounded'><Link href="/login">Login</Link></li>
+						<li className='font-bold text-white bg-green-500 rounded group'><Link href="/login">
+							Login
+						</Link></li>
 					</ul>
 				</div>
 			</div>
