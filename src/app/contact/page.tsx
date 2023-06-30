@@ -17,7 +17,7 @@ function Contact() {
 						<input type="email" name="email" className='w-4/5 px-4 py-2 border-2 border-teal-400 rounded-md ' placeholder='example@gmail.com' />
 						<input type="text" placeholder='Name' className='w-4/5 px-4 py-2 border-2 border-teal-400 rounded-md ' />
 						<textarea typeof='string' cols={50} rows={10} className='w-4/5 px-4 py-2 border-2 border-teal-400 rounded-md ' placeholder='Enter your message'></textarea>
-						<button className="flex justify-start px-6 py-2 font-bold border-2 rounded-md bg-gradient-to-r from-green-400 to-blue-500 max-w-fit hover:bg-green-500 hover:text-white">Submit</button>
+						<button className="flex justify-start px-6 py-2 font-bold border-2 border-teal-700 rounded-md max-w-fit hover:bg-green-500 hover:text-white">Submit</button>
 					</div>
 				</div>
 			</div>
