@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
+import styles from '@/app/contact/page.module.css'
 
 function Contact() {
 	return (
@@ -9,7 +10,7 @@ function Contact() {
 			</div>
 			<div className="flex flex-row gap-5">
 				<div className="p-12 basis-1/2">
-					<Image src="/contact.png" alt='contact' width={400} height={200} className='object-contain ' />
+					<Image src="/contact.png" alt='contact' width={400} height={200} className={styles.image} />
 				</div>
 				<div className="basis-1/2">
 					<div className="flex flex-col gap-5 ">
