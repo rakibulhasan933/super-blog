@@ -29,7 +29,7 @@ function Navbar() {
 				</div>
 				<div className="hidden navbar-center lg:flex">
 					<ul className="items-center px-1 menu menu-horizontal">
-						<li>
+						<li className='px-2'>
 							<DarkModeToggle />
 						</li>
 						<li className='hover:font-semibold hover:text-green-500'><Link href="/">Home</Link></li>
