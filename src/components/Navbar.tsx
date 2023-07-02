@@ -1,6 +1,7 @@
 "use client";
 import Link from 'next/link'
 import React from 'react'
+import DarkModeToggle from './DarkModeToggle';
 
 
 function Navbar() {
@@ -27,7 +28,10 @@ function Navbar() {
 					<a className="text-xl normal-case btn btn-ghost">daisyUI</a>
 				</div>
 				<div className="hidden navbar-center lg:flex">
-					<ul className="px-1 menu menu-horizontal">
+					<ul className="items-center px-1 menu menu-horizontal">
+						<li>
+							<DarkModeToggle />
+						</li>
 						<li className='hover:font-semibold hover:text-green-500'><Link href="/">Home</Link></li>
 						<li className='hover:font-semibold hover:text-green-500'><Link href="/portfolio">Portfolio</Link></li>
 						<li className='hover:font-semibold hover:text-green-500'><Link href="/blog">Blog</Link></li>
