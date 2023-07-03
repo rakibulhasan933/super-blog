@@ -1,19 +1,25 @@
 "use client"
-import { CiLight } from "react-icons/ci";
-import { CiDark } from "react-icons/ci";
+import { useTheme } from 'next-themes'
+import { useState, useEffect } from 'react'
 
 function DarkModeToggle() {
-  const mode = "dark";
+  const [mounted, setMounted] = useState(false)
+  const { theme, setTheme } = useTheme()
+
+  // useEffect only runs on the client, so now we can safely show the UI
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null
+  }
   return (
-    <div className="relative flex flex-row justify-around w-12 h-6 gap-2 border-2 rounded-full">
-      <div className="">
-        <CiLight />
-      </div>
-      <div className="">
-        <CiDark />
-      </div>
-      <div className="absolute right-0 w-4 h-4 bg-green-400 rounded-full"></div>
-    </div>
+    <select value={theme} onChange={e => setTheme(e.target.value)}>
+      <option value="system">System</option>
+      <option value="dark">Dark</option>
+      <option value="light">Light</option>
+    </select>
   )
 }
 
