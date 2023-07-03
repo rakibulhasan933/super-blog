@@ -20,7 +20,7 @@ function Contact() {
 						<input type="email" name="email" className='w-full px-4 py-2 border-2 border-teal-400 rounded-md bg-slate-50' placeholder='example@gmail.com' />
 						<input type="text" placeholder='Name' className='px-4 py-2 border-2 border-teal-400 rounded-md bg-slate-50' />
 						<textarea typeof='string' cols={20} rows={5} className='px-4 py-2 border-2 border-teal-400 rounded-md bg-slate-50' placeholder='Enter your message'></textarea>
-						<button className="flex justify-start px-6 py-2 font-bold transition duration-300 ease-in-out delay-150 bg-blue-500 border-2 border-teal-700 rounded-md max-w-fit bg-gradient-to-r from-green-400 to-blue-500 hover:translate-y-1 hover:scale-110 hover:text-white">Submit</button>
+						<button className="flex justify-start px-6 py-2 font-bold text-white transition duration-300 ease-in-out delay-150 bg-blue-500 border-2 border-teal-700 rounded-md max-w-fit bg-gradient-to-r from-green-400 to-blue-500 hover:translate-y-1 hover:scale-110">Submit</button>
 					</div>
 				</div>
 			</div>
