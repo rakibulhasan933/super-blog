@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar'
 import './globals.css'
 import { Manrope } from 'next/font/google'
 import Footer from '@/components/Footer'
+import Providers from '@/components/Providers'
 
 const inter = Manrope({ subsets: ['latin'] })
 
@@ -17,13 +18,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <section className='mx-[140px] py-5'>
-          <Navbar />
-          {children}
-          <Footer />
-        </section>
-      </body>
+      <Providers>
+        <body className={inter.className}>
+          <section className='mx-[140px] py-5'>
+            <Navbar />
+            {children}
+            <Footer />
+          </section>
+        </body>
+      </Providers>
     </html>
   )
 }
