@@ -2,9 +2,12 @@
 import Link from 'next/link'
 import React from 'react'
 import DarkModeToggle from './DarkModeToggle';
+import { signIn, useSession } from 'next-auth/react';
 
 
 function Navbar() {
+	const { data: session, status } = useSession()
+	console.log(session)
 	return (
 		<div>
 			<div className="navbar bg-base-100">
@@ -41,9 +44,9 @@ function Navbar() {
 						<li className='hover:font-bold hover:text-blue-500'><Link href="/about">About</Link></li>
 						<li className='hover:font-bold hover:text-blue-500'><Link href="/contact">Contact</Link></li>
 						<li className='hover:font-bold hover:text-blue-500'><Link href="/dashboard">DashBoard</Link></li>
-						<li className='font-bold text-white rounded bg-gradient-to-r from-green-400 to-blue-500 group'><Link href="/login">
+						<li className='font-bold text-white rounded bg-gradient-to-r from-green-400 to-blue-500 group'><button onClick={() => signIn("google")}>
 							Login
-						</Link></li>
+						</button></li>
 					</ul>
 				</div>
 			</div>
