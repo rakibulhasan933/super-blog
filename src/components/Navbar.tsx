@@ -66,7 +66,7 @@ function Navbar() {
 											</a>
 										</li>
 										<li><Link href={'/dashboard'}>Dashboard</Link></li>
-										<li><a>Logout</a></li>
+										<li><button onClick={() => signOut()} >Logout</button></li>
 									</ul>
 								</div>
 							}
