@@ -9,10 +9,7 @@ import Image from 'next/image';
 function Navbar() {
 	const { data } = useSession();
 
-
 	const userEmail = data?.user?.email;
-
-	console.log(data?.user, "user")
 
 	return (
 		<div>
@@ -31,13 +28,34 @@ function Navbar() {
 							<li className='hover:font-bold hover:text-blue-500'><Link href="/blog">Blog</Link></li>
 							<li className='hover:font-bold hover:text-blue-500'><Link href="/about">About</Link></li>
 							<li className='hover:font-bold hover:text-blue-500'><Link href="/contact">Contact</Link></li>
-							<li className='hover:font-bold hover:text-blue-500'><Link href="/dashboard">DashBoard</Link></li>
-							<li className='font-bold text-white rounded bg-gradient-to-r from-green-400 to-blue-500 group'><Link href="/login">
-								Login
-							</Link></li>
+							{userEmail ? <li>
+								{userEmail &&
+									<div className="my-2 dropdown dropdown-end">
+										<label tabIndex={1} className="btn btn-ghost btn-circle avatar">
+											<div className="w-10 rounded-full">
+												<Image src={data.user?.image as string} alt='man' width={50} height={50} />
+											</div>
+										</label>
+										<ul tabIndex={1} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+											<li>
+												<a className="justify-between">
+													{data.user?.name}
+													<span className="badge">New</span>
+												</a>
+											</li>
+											<li><Link href={'/dashboard'}>Dashboard</Link></li>
+											<li><button onClick={() => signOut()} >Logout</button></li>
+										</ul>
+									</div>
+								}
+							</li> :
+								<li className='font-bold text-white rounded bg-gradient-to-r from-green-400 to-blue-500 group'><button onClick={() => signIn()}>
+									Login
+								</button></li>
+							}
 						</ul>
 					</div>
-					<a className="text-xl normal-case btn btn-ghost">daisyUI</a>
+					<Link href="/" className="text-xl normal-case btn btn-ghost">The Thoughtful Pen</Link>
 				</div>
 				<div className="hidden navbar-center lg:flex">
 					<ul className="items-center px-1 menu menu-horizontal">
