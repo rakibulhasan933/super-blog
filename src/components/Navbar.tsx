@@ -3,7 +3,6 @@ import Link from 'next/link'
 import React from 'react'
 import DarkModeToggle from './DarkModeToggle';
 import { useSession, signIn, signOut } from "next-auth/react"
-import ProfileLogo from './ProfileLogo';
 import Image from 'next/image';
 
 
@@ -56,7 +55,7 @@ function Navbar() {
 								<div className="dropdown dropdown-end">
 									<label tabIndex={0} className="btn btn-ghost btn-circle avatar">
 										<div className="w-10 rounded-full">
-											<Image src={data.user?.image} alt='man' width={50} height={50} />
+											<Image src={data.user?.image as string} alt='man' width={50} height={50} />
 										</div>
 									</label>
 									<ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
