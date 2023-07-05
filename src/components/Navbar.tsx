@@ -3,10 +3,13 @@ import Link from 'next/link'
 import React from 'react'
 import DarkModeToggle from './DarkModeToggle';
 import { useSession, signIn, signOut } from "next-auth/react"
+import ProfileLogo from './ProfileLogo';
 
 
 function Navbar() {
 	const { data } = useSession();
+
+	const userEmail = data?.user?.email;
 
 	console.log(data?.user, "user")
 
@@ -49,6 +52,9 @@ function Navbar() {
 						<li className='font-bold text-white rounded bg-gradient-to-r from-green-400 to-blue-500 group'><button onClick={() => signIn()}>
 							Login
 						</button></li>
+						<li>
+							<ProfileLogo />
+						</li>
 					</ul>
 				</div>
 			</div>
