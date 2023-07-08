@@ -5,6 +5,7 @@ function Blog() {
 		<div>
 			<h2>Welcome to Blog Page</h2>
 			<p>Product page Updated</p>
+			<h4>updated store house 420</h4>
 		</div>
 	)
 }
