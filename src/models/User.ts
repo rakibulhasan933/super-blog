@@ -4,6 +4,7 @@ interface IUser {
 	name: string,
 	email: string,
 	password: string,
+	_id?: string,
 }
 
 const { Schema } = mongoose;
