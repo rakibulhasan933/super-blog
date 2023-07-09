@@ -13,15 +13,15 @@ function AddBlog() {
 	const onSubmit: SubmitHandler<Inputs> = data => console.log(data);
 
 	return (
-		<div className='flex mx-auto'>
-			<h2 className='text-3xl font-bold'>Add Blogs</h2>
+		<div className='flex flex-col gap-5 mx-auto'>
+			<h2 className='my-5 text-3xl font-bold text-center'>Add Blogs</h2>
 			<div className="">
-				<form onSubmit={handleSubmit(onSubmit)}>
-					<input {...register("title", { required: true })} />
+				<form className='flex flex-col w-full gap-4' onSubmit={handleSubmit(onSubmit)}>
+					<input className='border-2 border-black' {...register("title", { required: true })} />
 					{errors.title && <span>This field is required</span>}
-					<input {...register("imageUrl", { required: true })} />
+					<input className='border-2 border-black' {...register("imageUrl", { required: true })} />
 					{errors.imageUrl && <span>This field is required</span>}
-					<input {...register("description", { required: true })} />
+					<textarea className='border-2 border-black' {...register("description", { required: true })} />
 					{errors.description && <span>This field is required</span>}
 					<input type="submit" />
 				</form>
