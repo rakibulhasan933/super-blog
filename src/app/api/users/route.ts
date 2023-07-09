@@ -13,4 +13,11 @@ export const GET = async (request: any) => {
 	} catch (error) {
 		return new NextResponse("Database Error", { status: 500 })
 	}
-}
+};
+
+export const POST = async (request: any) => {
+
+	const body = await request.json();
+	console.log(request);
+	return NextResponse.json({ body })
+};
