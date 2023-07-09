@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import '../globals.css'
 import { Manrope } from 'next/font/google'
 
@@ -16,9 +17,16 @@ export default function DashboardLayout({
 }) {
 	return (
 		<section className={inter.className}>
-			<div className="flex flex-row gap-4 mx-[140px] my-[40px]">
-				<div className="flex w-3/12">
-					<h3>Sidebar</h3>
+			<div className="flex flex-row gap-4 mx-[40px] my-[40px]">
+				<div className="flex w-3/12 px-[10px]">
+					<ul className="flex flex-col gap-2">
+						<li>
+							<Link href="/dashboard/add_blog" className='text-lg font-normal'>Add Blog</Link>
+						</li>
+						<li>
+							<Link href="/dashboard/blogs_list" className='text-lg font-normal'>Blog List</Link>
+						</li>
+					</ul>
 				</div>
 				<div className="flex w-9/12">
 					{children}
