@@ -18,7 +18,7 @@ export default function DashboardLayout({
 	return (
 		<section className={inter.className}>
 			<div className="flex flex-row gap-4 mx-[40px] my-[40px]">
-				<div className="flex w-3/12 px-[10px]">
+				<div className="flex w-3/12 p-5 rounded-md bg-slate-200">
 					<ul className="flex flex-col gap-2">
 						<li>
 							<Link href="/dashboard/add_blog" className='text-lg font-normal'>Add Blog</Link>
