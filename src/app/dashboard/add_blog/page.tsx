@@ -1,4 +1,5 @@
 "use client"
+import { useSession } from 'next-auth/react';
 import React from 'react'
 import { useForm, SubmitHandler } from "react-hook-form";
 
@@ -9,11 +10,29 @@ type Inputs = {
 };
 
 function AddBlog() {
-	const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
-	const onSubmit: SubmitHandler<Inputs> = data => console.log(data);
+	const { data: user } = useSession();
+	const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
+	const onSubmit: SubmitHandler<Inputs> = async (data) => {
+		try {
+			const postCreated = await fetch("/api/posts", {
+				method: "POST",
+				body: JSON.stringify({
+					title: data.title,
+					imageUrl: data.imageUrl,
+					description: data.description,
+					username: user?.user?.name,
+					userImage: user?.user?.image,
+					email: user?.user?.email,
+				})
+			});
+			console.log(postCreated);
+		} catch (error) {
+			console.log(error);
+		}
+	}
 
 	return (
-		<div className='mx-[40px]'>
+		<div className='mx-[40px] h-min'>
 			<div className='flex flex-col px-6'>
 				<h2 className='mb-10 text-xl font-semibold'>Add Blogs</h2>
 				<div className="flex flex-col gap-2">
@@ -25,6 +44,7 @@ function AddBlog() {
 						<textarea className='w-full px-4 py-2 my-2 border-2 border-teal-400 rounded-md bg-slate-50' placeholder='Enter your message' {...register("description", { required: true })} />
 						<br />
 						{errors.description && <span className='text-red-600'>This field is required</span>}
+						<br />
 						<input className='px-4 py-2 my-3 font-bold border-2 border-blue-500 rounded-md max-w-fit hover:bg-blue-600 hover:text-white' type="submit" />
 					</form>
 				</div>

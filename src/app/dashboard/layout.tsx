@@ -17,14 +17,14 @@ export default function DashboardLayout({
 }) {
 	return (
 		<section className={inter.className}>
-			<div className="flex flex-row gap-4 mx-[40px] my-[40px]">
-				<div className="flex w-3/12 p-5 rounded-md bg-slate-200">
+			<div className="flex flex-row gap-4 h-screen mx-[40px] my-[40px]">
+				<div className="flex w-3/12 p-10 rounded-md bg-slate-200">
 					<ul className="flex flex-col gap-2">
 						<li>
-							<Link href="/dashboard/add_blog" className='text-lg font-normal'>Add Blog</Link>
+							<Link href="/dashboard/add_blog" className='text-base font-bold hover:text-blue-500'>Add Blog</Link>
 						</li>
 						<li>
-							<Link href="/dashboard/blogs_list" className='text-lg font-normal'>Blog List</Link>
+							<Link href="/dashboard/blogs_list" className='text-base font-bold hover:text-blue-500'>Blog List</Link>
 						</li>
 					</ul>
 				</div>
