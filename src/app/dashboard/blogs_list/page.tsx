@@ -22,9 +22,7 @@ function BlogsList() {
             <div className="w-1/3 p-2">
               <Image src={data?.user?.image as string} width={200} height={140} priority alt="title" />
             </div>
-            <div className="w-1/3 ">
-              <Image src={data?.user?.image as string} width={200} height={140} priority alt="title" />
-            </div>
+
           </div>
         </div>
       </div>
