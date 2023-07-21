@@ -5,7 +5,7 @@ function Blog() {
 	return (
 		<div className='m-10'>
 			<div className="grid grid-cols-3 gap-4">
-				<div className="flex flex-col px-2 border-2 rounded-md ">
+				<div className="flex flex-col p-3 border-2 rounded-md ">
 					<div className="flex justify-center">
 						<Image src="/hero.png" alt='photo' width={200} priority height={150} />
 					</div>
