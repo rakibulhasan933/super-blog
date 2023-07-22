@@ -23,6 +23,7 @@ function AddBlog() {
 					username: user?.user?.name,
 					userImage: user?.user?.image,
 					email: user?.user?.email,
+					createdTime: Date(),
 				})
 			});
 			console.log(postCreated);

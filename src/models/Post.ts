@@ -40,7 +40,11 @@ const postSchema = new Schema({
 	email: {
 		type: String,
 		required: true,
-	}
-});
+	},
+	createdTime: {
+		type: String,
+		required: true,
+	},
+}, { timestamps: true });
 
 export default mongoose.models.Post<IPosts> || mongoose.model<IPosts>("Post", postSchema);
