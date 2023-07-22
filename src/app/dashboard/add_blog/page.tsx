@@ -26,7 +26,6 @@ function AddBlog() {
 					createdTime: Date(),
 				})
 			});
-			console.log(postCreated);
 		} catch (error) {
 			console.log(error);
 		}
