@@ -6,6 +6,14 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   darkMode: 'class',
-  theme: {},
+  theme: {
+    extend: {
+      colors: {
+        gradientRed: '#ff0000',
+        gradientGreen: '#00ff00',
+        gradientBlue: '#0000ff',
+      },
+    },
+  },
   plugins: [require("daisyui")],
 }
