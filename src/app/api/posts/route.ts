@@ -1,3 +1,5 @@
+import prisma from '@/app/libs/prismadb';
+import { BlogProps } from '@/type';
 import { NextResponse } from "next/server";
 
 export const GET = async (request: any) => {
@@ -12,11 +14,24 @@ export const GET = async (request: any) => {
 export const POST = async (request: any) => {
 
 	try {
-		const body = await request.json();
+		const body: BlogProps = await request.json();
 
-		return NextResponse.json(body);
+		const { title, imageUrl, description, username, userImage, email } = body;
+
+		const newBlog = await prisma.Blogs.create({
+			data: {
+				title,
+				description,
+				imageUrl,
+				username,
+				userImage,
+				email
+			}
+		});
+		console.log(newBlog);
+		return NextResponse.json(newBlog);
 	} catch (error) {
 		console.log(error);
-		return NextResponse.json(error);
+		return NextResponse.json({ message: "POST error", error }, { status: 500 });
 	}
 };

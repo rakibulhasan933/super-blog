@@ -23,7 +23,6 @@ function AddBlog() {
 					username: user?.user?.name,
 					userImage: user?.user?.image,
 					email: user?.user?.email,
-					createdTime: Date(),
 				})
 			});
 		} catch (error) {
@@ -45,7 +44,7 @@ function AddBlog() {
 						<br />
 						{errors.description && <span className='text-red-600'>This field is required</span>}
 						<br />
-						<input className='px-4 py-2 my-3 font-bold border-2 border-blue-500 rounded-md max-w-fit hover:bg-blue-600 hover:text-white' type="submit" />
+						<input className='px-4 py-2 my-3 font-bold border-2 border-blue-500 rounded-md cursor-pointer max-w-fit hover:bg-blue-600 hover:text-white' type="submit" />
 					</form>
 				</div>
 			</div>
