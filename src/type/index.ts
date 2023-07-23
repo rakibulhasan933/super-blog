@@ -6,3 +6,10 @@ export interface BlogProps {
 	userImage: string,
 	email: string,
 };
+export interface IdIProps {
+	id: string;
+}
+
+export interface ParamsIProps {
+	params: IdIProps;
+}

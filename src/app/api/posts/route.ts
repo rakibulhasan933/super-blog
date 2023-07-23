@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 export const GET = async (request: any) => {
 	try {
-		const blogs = await prisma.Blogs.findMany();
+		const blogs: BlogProps[] = await prisma.Blogs.findMany();
 		return NextResponse.json(blogs);
 	} catch (error) {
 		return NextResponse.json({ message: "GET error", error }, { status: 500 })
