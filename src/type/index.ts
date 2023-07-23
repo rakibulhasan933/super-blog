@@ -5,6 +5,8 @@ export interface BlogProps {
 	description: string,
 	userImage: string,
 	email: string,
+	_id?: string,
+	createdTime?: any,
 };
 export interface IdIProps {
 	id: string;
