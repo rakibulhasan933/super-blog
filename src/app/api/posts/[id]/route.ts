@@ -2,6 +2,8 @@ import prisma from '@/app/libs/prismadb';
 import { BlogProps, ParamsIProps } from '@/type';
 import { NextResponse } from "next/server";
 
+// Single Blog GET API
+// http://localhost:3000/api/posts/1234
 
 export const GET = async (request: any, { params }: ParamsIProps) => {
 
@@ -23,6 +25,9 @@ export const GET = async (request: any, { params }: ParamsIProps) => {
 	}
 
 };
+
+// Single Blog Updated API
+// http://localhost:3000/api/posts/1234
 
 export const PATCH = async (request: any, { params }: ParamsIProps) => {
 
@@ -51,5 +56,24 @@ export const PATCH = async (request: any, { params }: ParamsIProps) => {
 	} catch (error) {
 		console.log(error);
 		return NextResponse.json({ message: "POST error", error }, { status: 500 });
+	}
+};
+
+// Single Blog Delete API
+// http://localhost:3000/api/posts/1234
+
+export const DELETE = async (request: any, { params }: ParamsIProps) => {
+
+	try {
+		const { id } = params;
+
+		await prisma.Blogs.delete({
+			where: {
+				id,
+			}
+		});
+		return NextResponse.json({ message: "Blog Deleted successfully" })
+	} catch (error) {
+		return NextResponse.json({ message: "DELETE Error", error }, { status: 500 })
 	}
 };

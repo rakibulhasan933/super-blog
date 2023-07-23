@@ -2,6 +2,9 @@ import prisma from '@/app/libs/prismadb';
 import { BlogProps } from '@/type';
 import { NextResponse } from "next/server";
 
+// ALL Blog GET API
+// http://localhost:3000/api/posts
+
 export const GET = async (request: any) => {
 	try {
 		const blogs: BlogProps[] = await prisma.Blogs.findMany();
@@ -10,7 +13,8 @@ export const GET = async (request: any) => {
 		return NextResponse.json({ message: "GET error", error }, { status: 500 })
 	}
 }
-
+//  Blog POST API
+// http://localhost:3000/api/posts
 export const POST = async (request: any) => {
 
 	try {
