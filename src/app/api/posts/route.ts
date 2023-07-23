@@ -4,10 +4,10 @@ import { NextResponse } from "next/server";
 
 export const GET = async (request: any) => {
 	try {
-		return NextResponse.json({ message: "GET is Working" });
-	} catch (error: any) {
-		console.log(error)
-		return new NextResponse(error);
+		const blogs = await prisma.Blogs.findMany();
+		return NextResponse.json(blogs);
+	} catch (error) {
+		return NextResponse.json({ message: "GET error", error }, { status: 500 })
 	}
 }
 
