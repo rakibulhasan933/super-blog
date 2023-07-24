@@ -27,7 +27,7 @@ async function Blog() {
 							<Link href={`blog/${blog?.id}`}>
 								<div className="flex flex-col p-2">
 									<div className="flex justify-center">
-										<Image src={blog.imageUrl} className='w-full' alt='photo' width={200} priority height={150} />
+										<Image src={blog?.imageUrl} className='w-full' alt='photo' width={200} priority height={150} />
 									</div>
 									<p className="my-2 text-base font-normal">{blog.username.toLocaleUpperCase()}</p>
 									<h2 className="my-3 text-xl font-semibold">{blog.title}</h2>
