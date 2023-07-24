@@ -27,8 +27,8 @@ async function Blog() {
 			<div className="grid grid-cols-3 gap-4">
 				{
 					data && data.map((blog) => (
-						<section key={blog._id} className="flex flex-col border-2 rounded-lg">
-							<Link href={`dashboard/blog._id` as string}>
+						<section key={blog.id} className="flex flex-col border-2 rounded-lg">
+							<Link href={`blog/${blog?.id}`}>
 								<div className="flex flex-col p-2">
 									<div className="flex justify-center">
 										<Image src={blog.imageUrl} alt='photo' width={200} priority height={150} />

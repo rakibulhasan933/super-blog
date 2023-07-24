@@ -1,8 +1,10 @@
+import { ParamsIProps } from '@/type'
 import React from 'react'
 
-function Blog() {
+function Blog({ params }: ParamsIProps) {
+	const { id } = params;
 	return (
-		<div>Welcome to Single Blog Page</div>
+		<div>Welcome to Single Blog Page :{id} </div>
 	)
 }
 
