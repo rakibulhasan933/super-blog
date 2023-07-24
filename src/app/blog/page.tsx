@@ -1,6 +1,11 @@
 import { BlogProps } from '@/type';
 import Image from 'next/image'
+import Link from 'next/link';
 import React from 'react'
+
+interface LinkIProps {
+	Url: string | undefined;
+}
 
 
 // Blogs Data loaded
@@ -22,16 +27,18 @@ async function Blog() {
 			<div className="grid grid-cols-3 gap-4">
 				{
 					data && data.map((blog) => (
-						<div key={blog._id} className="flex flex-col border-2 rounded-lg">
-							<div className="flex flex-col p-2">
-								<div className="flex justify-center">
-									<Image src={blog.imageUrl} alt='photo' width={200} priority height={150} />
+						<section key={blog._id} className="flex flex-col border-2 rounded-lg">
+							<Link href={`dashboard/blog._id` as string}>
+								<div className="flex flex-col p-2">
+									<div className="flex justify-center">
+										<Image src={blog.imageUrl} alt='photo' width={200} priority height={150} />
+									</div>
+									<p className="my-2 text-base font-normal">{blog.username.toLocaleUpperCase()}</p>
+									<h2 className="my-3 text-xl font-semibold">{blog.title}</h2>
+									<p className="mb-2 text-xs font-normal">{blog.createdTime}</p>
 								</div>
-								<p className="my-2 text-base font-normal">{blog.username.toLocaleUpperCase()}</p>
-								<h2 className="my-3 text-xl font-semibold">{blog.title}</h2>
-								<p className="mb-2 text-xs font-normal">{blog.createdTime}</p>
-							</div>
-						</div>
+							</Link>
+						</section>
 					))
 				}
 			</div>
