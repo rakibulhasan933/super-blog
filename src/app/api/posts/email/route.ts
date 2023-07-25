@@ -18,8 +18,6 @@ export const POST = async (request: any) => {
 		if (!blog) {
 			return NextResponse.json({ message: "Page Not Found" }, { status: 404 });
 		}
-		console.log(blog, "result");
-
 		return NextResponse.json({ blog })
 	} catch (error) {
 		return NextResponse.json({ message: "GET Error", error }, { status: 500 })
