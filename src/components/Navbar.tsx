@@ -4,10 +4,13 @@ import React from 'react'
 import DarkModeToggle from './DarkModeToggle';
 import { useSession, signIn, signOut } from "next-auth/react"
 import Image from 'next/image';
-
+import { usePathname } from 'next/navigation'
 
 function Navbar() {
 	const { data } = useSession();
+
+	const pathname = usePathname()
+	console.log(pathname);
 
 	const userEmail = data?.user?.email;
 

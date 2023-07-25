@@ -15,3 +15,8 @@ export interface IdIProps {
 export interface ParamsIProps {
 	params: IdIProps;
 }
+export interface DashBoardProps {
+	id: number,
+	title: string,
+	href: string
+};

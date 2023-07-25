@@ -1,6 +1,6 @@
-import Link from 'next/link'
 import '../globals.css'
 import { Manrope } from 'next/font/google'
+import DashboardNavbar from '@/components/DashboardNavbar'
 
 
 const inter = Manrope({ subsets: ['latin'] })
@@ -16,22 +16,15 @@ export default function DashboardLayout({
 	children: React.ReactNode
 }) {
 	return (
-		<section className={inter.className}>
+		<div className={inter.className}>
 			<div className="flex flex-row gap-4 h-screen mx-[40px] my-[40px]">
 				<div className="flex w-3/12 p-10 rounded-md bg-slate-200">
-					<ul className="flex flex-col gap-2">
-						<li>
-							<Link href="/dashboard/add_blog" className='text-base font-bold hover:text-blue-500'>Add Blog</Link>
-						</li>
-						<li>
-							<Link href="/dashboard/blogs_list" className='text-base font-bold hover:text-blue-500'>Blog List</Link>
-						</li>
-					</ul>
+					<DashboardNavbar />
 				</div>
 				<div className="flex w-9/12">
 					{children}
 				</div>
 			</div>
-		</section>
+		</div>
 	)
 }
