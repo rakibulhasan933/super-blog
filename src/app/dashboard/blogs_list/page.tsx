@@ -2,6 +2,7 @@
 import { useSession } from 'next-auth/react'
 import Image from 'next/image';
 import React from 'react'
+
 interface IUser {
   name: string,
   image: string,
@@ -9,7 +10,7 @@ interface IUser {
 }
 
 function BlogsList() {
-  const { data } = useSession()
+  const { data } = useSession();
   return (
     <div className='mx-[20px]'>
       <h2 className="flex justify-start my-3">{data?.user?.name} All Blogs List</h2>
