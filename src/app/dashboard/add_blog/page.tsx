@@ -31,7 +31,7 @@ function AddBlog() {
 	}
 
 	return (
-		<div className='mx-[40px] h-min'>
+		<div className='mx-[40px] h-screen '>
 			<div className='flex flex-col px-6'>
 				<h2 className='mb-10 text-xl font-semibold'>Add Blogs</h2>
 				<div className="flex flex-col gap-2">

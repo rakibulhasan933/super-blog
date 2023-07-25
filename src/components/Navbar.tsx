@@ -5,6 +5,35 @@ import DarkModeToggle from './DarkModeToggle';
 import { useSession, signIn, signOut } from "next-auth/react"
 import Image from 'next/image';
 import { usePathname } from 'next/navigation'
+import { DashBoardProps } from '@/type';
+
+const links: DashBoardProps[] = [
+	{
+		id: 1,
+		href: "/",
+		title: "Home"
+	},
+	{
+		id: 2,
+		href: "/about",
+		title: "About"
+	},
+	{
+		id: 3,
+		href: "/blog",
+		title: "Blogs"
+	},
+	{
+		id: 4,
+		href: "/contact",
+		title: "Contacts"
+	},
+	{
+		id: 5,
+		href: "/dashboard",
+		title: "Dashboard"
+	}
+];
 
 function Navbar() {
 	const { data } = useSession();
@@ -16,7 +45,7 @@ function Navbar() {
 
 	return (
 		<div>
-			<div className="navbar bg-base-100">
+			<div className="navbar bg-base-50">
 				<div className="navbar-start">
 					<div className="dropdown">
 						<label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -26,11 +55,9 @@ function Navbar() {
 							<li>
 								<DarkModeToggle />
 							</li>
-							<li className='hover:font-bold hover:text-blue-500'><Link href="/">Home</Link></li>
-							<li className='hover:font-bold hover:text-blue-500'><Link href="/portfolio">Portfolio</Link></li>
-							<li className='hover:font-bold hover:text-blue-500'><Link href="/blog">Blog</Link></li>
-							<li className='hover:font-bold hover:text-blue-500'><Link href="/about">About</Link></li>
-							<li className='hover:font-bold hover:text-blue-500'><Link href="/contact">Contact</Link></li>
+							{
+								links.map((link) => <li key={link.id} className={pathname === link.href ? "text-blue-900" : ""}><Link className='font-semibold' href={link.href}>{link.title}</Link></li>)
+							}
 							{userEmail ? <li>
 								{userEmail &&
 									<div className="my-2 dropdown dropdown-end">
@@ -65,12 +92,9 @@ function Navbar() {
 						<li>
 							<DarkModeToggle />
 						</li>
-						<li className='hover:font-bold hover:text-blue-500'><Link href="/">Home</Link></li>
-						<li className='hover:font-bold hover:text-blue-500'><Link href="/portfolio">Portfolio</Link></li>
-						<li className='hover:font-bold hover:text-blue-500'><Link href="/blog">Blog</Link></li>
-						<li className='hover:font-bold hover:text-blue-500'><Link href="/about">About</Link></li>
-						<li className='hover:font-bold hover:text-blue-500'><Link href="/contact">Contact</Link></li>
-						{userEmail && <li className='hover:font-bold hover:text-blue-500'><Link href="/dashboard">DashBoard</Link></li>}
+						{
+							links.map((link) => <li key={link.id} className={pathname === link.href ? "text-blue-800 bg-blue-200 rounded" : ""}><Link className='font-semibold' href={link.href}>{link.title}</Link></li>)
+						}
 						{userEmail ? <li>
 							{userEmail &&
 								<div className="dropdown dropdown-end">
