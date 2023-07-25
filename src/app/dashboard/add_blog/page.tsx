@@ -14,7 +14,7 @@ function AddBlog() {
 	const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
 	const onSubmit: SubmitHandler<Inputs> = async (data) => {
 		try {
-			const postCreated = await fetch("/api/posts", {
+			await fetch("/api/posts", {
 				method: "POST",
 				body: JSON.stringify({
 					title: data.title,

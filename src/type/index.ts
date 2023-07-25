@@ -20,3 +20,6 @@ export interface DashBoardProps {
 	title: string,
 	href: string
 };
+export interface SenderProps {
+	email: string,
+}
