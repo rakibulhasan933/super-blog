@@ -2,7 +2,9 @@
 import { BlogProps } from '@/type';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { MdDeleteOutline } from 'react-icons/md'
+import { GrDocumentUpdate } from 'react-icons/gr'
 
 
 
@@ -40,8 +42,8 @@ async function BlogsList() {
                 <h4 className="text-sm font-normal ">{item.description}</h4>
                 <h4 className="text-xs font-medium text-blue-500">{item.createdTime}</h4>
                 <div className="flex flex-row gap-4">
-                  <button>Update</button>
-                  <button>Deleted</button>
+                  <button className='mx-4 my-2 text-4xl text-green-500'><GrDocumentUpdate /></button>
+                  <button className='mx-4 my-2 text-4xl text-red-500'><MdDeleteOutline /></button>
                 </div>
               </div>
             </div>
