@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
 	return (
-		<div>
+		<>
 			<footer className="p-10 rounded footer bg-base-200 text-base-content">
 				<div>
 					<span className="footer-title">Services</span>
@@ -38,7 +38,7 @@ function Footer() {
 					</div>
 				</div>
 			</footer>
-		</div>
+		</>
 	)
 }
 

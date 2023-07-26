@@ -48,7 +48,7 @@ async function BlogsList() {
           ))
         }
       </div>
-      <button className='flex items-center justify-center px-4 py-2 mt-8 font-medium rounded-md bg-gradient-to-r from-green-400 to-blue-500' onClick={() => userSender(email)} >Refresh</button>
+      <button className='flex items-center justify-center px-4 py-2 mx-8 mt-8 font-medium rounded-md bg-gradient-to-r from-green-400 to-blue-500' onClick={() => userSender(email)} >Refresh</button>
     </div>
   )
 }
