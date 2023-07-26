@@ -1,4 +1,5 @@
 import React from 'react'
+
 interface deleteBlogsProps {
 	id: string;
 	title: string;
@@ -18,10 +19,11 @@ function Popup({ isOpen, onClose, deleteId, deleteTitle }: PopupProps) {
 				method: "DELETE"
 			});
 			if (res.ok) {
+				alert("Blog Deleted successfully");
 				onClose();
 			}
 		} catch (error) {
-
+			return new Error("Failed Deleted Blogs");
 		}
 	}
 	return (

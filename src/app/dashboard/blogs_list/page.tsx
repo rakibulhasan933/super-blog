@@ -25,8 +25,6 @@ async function BlogsList() {
     setIsPopupOpen(false);
   };
 
-
-  console.log(blogs);
   const { data } = useSession();
   const email = data?.user?.email as string;
   const userSender = async (email: string) => {
@@ -40,7 +38,7 @@ async function BlogsList() {
       const loadBlogs = await res.json();
       setBlogs(loadBlogs.blog);
     } catch (error) {
-      console.log(error);
+      return new Error("Failed Fetch Error");
     }
   };
   return (
