@@ -13,10 +13,12 @@ async function BlogsList() {
   const [blogs, setBlogs] = useState<BlogProps[]>();
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [deleteId, setDeletedId] = useState("");
+  const [deleteTitle, setDeletedTitle] = useState("");
 
-  const handleOpenPopup = (id: string) => {
+  const handleOpenPopup = (id: string, title: string) => {
     setIsPopupOpen(true);
     setDeletedId(id);
+    setDeletedTitle(title);
   };
 
   const handleClosePopup = () => {
@@ -57,10 +59,10 @@ async function BlogsList() {
                 <h4 className="text-xs font-medium text-blue-500">{item.createdTime}</h4>
                 <div className="flex flex-row gap-4">
                   <button className='mx-4 my-2 text-4xl text-green-500'><MdSecurityUpdateGood /></button>
-                  <button onClick={() => handleOpenPopup(item.id as string)} className='mx-4 my-2 text-4xl text-red-500'><MdDeleteOutline /></button>
+                  <button onClick={() => handleOpenPopup(item.id as string, item.title)} className='mx-4 my-2 text-4xl text-red-500'><MdDeleteOutline /></button>
                 </div>
               </div>
-              <Popup deleteId={deleteId} isOpen={isPopupOpen} onClose={handleClosePopup} />
+              <Popup deleteId={deleteId} deleteTitle={deleteTitle} isOpen={isPopupOpen} onClose={handleClosePopup} />
             </div>
           ))
         }
