@@ -1,15 +1,27 @@
 'use client';
+import Popup from '@/components/Popup';
 import { BlogProps } from '@/type';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { MdDeleteOutline } from 'react-icons/md'
-import { GrDocumentUpdate } from 'react-icons/gr'
+import { MdSecurityUpdateGood } from 'react-icons/md'
 
 
 
 async function BlogsList() {
   const [blogs, setBlogs] = useState<BlogProps[]>();
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const handleOpenPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
+  };
+
+
   console.log(blogs);
   const { data } = useSession();
   const email = data?.user?.email as string;
@@ -42,10 +54,11 @@ async function BlogsList() {
                 <h4 className="text-sm font-normal ">{item.description}</h4>
                 <h4 className="text-xs font-medium text-blue-500">{item.createdTime}</h4>
                 <div className="flex flex-row gap-4">
-                  <button className='mx-4 my-2 text-4xl text-green-500'><GrDocumentUpdate /></button>
-                  <button className='mx-4 my-2 text-4xl text-red-500'><MdDeleteOutline /></button>
+                  <button className='mx-4 my-2 text-4xl text-green-500'><MdSecurityUpdateGood /></button>
+                  <button onClick={handleOpenPopup} className='mx-4 my-2 text-4xl text-red-500'><MdDeleteOutline /></button>
                 </div>
               </div>
+              <Popup id={item.id as string} title={item.title} isOpen={isPopupOpen} onClose={handleClosePopup} />
             </div>
           ))
         }
