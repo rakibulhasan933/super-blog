@@ -11,8 +11,18 @@ interface PopupProps {
 }
 function Popup({ isOpen, onClose, deleteId, deleteTitle }: PopupProps) {
 	if (!isOpen) return null;
-	const handleDeleted = (id: string) => {
+	const handleDeleted = async (id: string) => {
 		console.log(`click${id}`);
+		try {
+			const res = await fetch(`/api/posts/${id}`, {
+				method: "DELETE"
+			});
+			if (res.ok) {
+				onClose();
+			}
+		} catch (error) {
+
+		}
 	}
 	return (
 		<div className="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-gray-500 bg-opacity-50">
