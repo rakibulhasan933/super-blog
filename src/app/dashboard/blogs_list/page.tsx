@@ -1,19 +1,26 @@
+'use client';
+import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import React from 'react'
 
 
-async function getAllBlogs() {
-  const res = await fetch('http://localhost:3000/api/posts', {
-    cache: "no-store",
-  });
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-  return res.json();
-};
-
 async function BlogsList() {
-  const data = await getAllBlogs();
+  const { data } = useSession();
+  const email = data?.user?.email as string;
+  async function userSender() {
+    try {
+      const res = await fetch("/api/posts/email", {
+        method: "POST",
+        body: JSON.stringify({
+          email: email,
+        })
+      });
+      const loadBlogs = await res.json();
+      console.log(loadBlogs.blog);
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <div className='mx-[20px]'>
       <h2 className="flex justify-start my-3 text-2xl"> Your blogs list</h2>
@@ -28,6 +35,7 @@ async function BlogsList() {
           </div>
         </div>
       </div>
+      <button className='flex items-center justify-center px-4 py-2 mt-8 font-medium rounded-md bg-gradient-to-r from-green-400 to-blue-500' onClick={() => userSender()} >Refresh</button>
     </div>
   )
 }

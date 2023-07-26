@@ -36,11 +36,8 @@ const links: DashBoardProps[] = [
 ];
 
 function Navbar() {
-	const { data } = useSession();
-
 	const pathname = usePathname()
-	console.log(pathname);
-
+	const { data } = useSession();
 	const userEmail = data?.user?.email;
 
 	return (
