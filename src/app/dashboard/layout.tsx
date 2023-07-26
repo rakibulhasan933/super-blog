@@ -1,5 +1,4 @@
 import '../globals.css'
-import { Manrope } from 'next/font/google'
 import DashboardNavbar from '@/components/DashboardNavbar'
 
 export const metadata = {
@@ -13,12 +12,12 @@ export default function DashboardLayout({
 	children: React.ReactNode
 }) {
 	return (
-		<div>
-			<div className="flex flex-row gap-4 h-screen mx-[40px] my-[40px]">
-				<div className="flex w-3/12 p-10 rounded-md bg-slate-200">
+		<div className='h-screen mx-40'>
+			<div className="flex flex-row gap-x-4">
+				<div className="w-1/4 min-h-screen p-4 rounded-md bg-slate-400">
 					<DashboardNavbar />
 				</div>
-				<div className="flex w-9/12">
+				<div className="w-3/4">
 					{children}
 				</div>
 			</div>

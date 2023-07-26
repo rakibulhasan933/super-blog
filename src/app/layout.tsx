@@ -22,11 +22,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           <AuthProvider>
-            <section className='mx-[140px] py-5'>
-              <Navbar />
-              {children}
-              <Footer />
-            </section>
+            <Navbar />
+            {children}
           </AuthProvider>
         </Providers>
       </body>
