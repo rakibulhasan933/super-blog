@@ -23,3 +23,7 @@ export interface DashBoardProps {
 export interface SenderProps {
 	email: string,
 }
+export interface deleteBlogsProps {
+	id: string;
+	title: string;
+}
