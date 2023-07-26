@@ -28,15 +28,21 @@ async function BlogsList() {
   return (
     <div className=''>
       <h2 className="flex justify-start my-3 text-2xl"> Your blogs list</h2>
-      <div className="flex flex-col gap-x-3">
+      <div className="flex flex-col gap-4 p-4">
         {
           blogs?.map((item) => (
-            <div key={item.id} className="flex flex-row px-3 py-2 bg-slate-200">
-              <div className="">
+            <div key={item.id} className="flex flex-row p-4 py-2 border-2 border-orange-500 rounded-md">
+              <div className="mx-4">
                 <Image src={item.imageUrl} className='rounded-md' width={200} height={80} priority alt="title" />
               </div>
-              <div className="">
+              <div className="flex flex-col justify-between gap-2">
                 <h2 className="text-2xl font-medium">{item.title}</h2>
+                <h4 className="text-sm font-normal ">{item.description}</h4>
+                <h4 className="text-xs font-medium text-blue-500">{item.createdTime}</h4>
+                <div className="flex flex-row gap-4">
+                  <button>Update</button>
+                  <button>Deleted</button>
+                </div>
               </div>
             </div>
           ))
