@@ -1,6 +1,7 @@
 "use client"
 import { Inputs } from '@/type';
 import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import React from 'react'
 import { useForm, SubmitHandler } from "react-hook-form";
 
@@ -8,10 +9,11 @@ import { useForm, SubmitHandler } from "react-hook-form";
 
 function AddBlog() {
 	const { data: user } = useSession();
+	const router = useRouter();
 	const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
 	const onSubmit: SubmitHandler<Inputs> = async (data) => {
 		try {
-			await fetch("/api/posts", {
+			const res = await fetch("/api/posts", {
 				method: "POST",
 				body: JSON.stringify({
 					title: data.title,
@@ -22,6 +24,9 @@ function AddBlog() {
 					email: user?.user?.email,
 				})
 			});
+			if (res.ok) {
+				router.push('/dashboard/blogs_list');
+			}
 		} catch (error) {
 			console.log(error);
 		}
