@@ -4,7 +4,6 @@ import { Manrope } from 'next/font/google'
 import Footer from '@/components/Footer'
 import Providers from '@/components/Providers'
 import AuthProvider from '@/components/AuthProvider'
-import ReactQueryProvider from '@/components/ReactQueryProvider'
 
 const inter = Manrope({ subsets: ['latin'] })
 
@@ -21,17 +20,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ReactQueryProvider>
-          <Providers>
-            <AuthProvider>
-              <div className='mx-40'>
-                <Navbar />
-                {children}
-                <Footer />
-              </div>
-            </AuthProvider>
-          </Providers>
-        </ReactQueryProvider>
+        <Providers>
+          <AuthProvider>
+            <div className='mx-40'>
+              <Navbar />
+              {children}
+              <Footer />
+            </div>
+          </AuthProvider>
+        </Providers>
       </body>
     </html>
   )

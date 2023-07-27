@@ -1,28 +1,22 @@
+import { PopupProps } from '@/type';
+import { useRouter } from 'next/navigation';
 import React from 'react'
 
-interface deleteBlogsProps {
-	id: string;
-	title: string;
-}
-interface PopupProps {
-	isOpen: boolean;
-	onClose: () => void;
-	deleteId: string;
-	deleteTitle: string;
-}
-function Popup({ isOpen, onClose, deleteId, deleteTitle }: PopupProps) {
+function Popup({ isOpen, onClose, deleteId, deleteTitle, email, userSender }: PopupProps) {
+	const router = useRouter();
 	if (!isOpen) return null;
 	const handleDeleted = async (id: string) => {
-		console.log(`click${id}`);
 		try {
 			const res = await fetch(`/api/posts/${id}`, {
 				method: "DELETE"
 			});
 			if (res.ok) {
-				alert("Blog Deleted successfully");
 				onClose();
+				alert("Blog Deleted successfully");
+				await userSender(email);
 			}
 		} catch (error) {
+			console.log(error)
 			return new Error("Failed Deleted Blogs");
 		}
 	}

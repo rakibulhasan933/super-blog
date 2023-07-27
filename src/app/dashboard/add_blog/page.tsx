@@ -1,13 +1,10 @@
 "use client"
+import { Inputs } from '@/type';
 import { useSession } from 'next-auth/react';
 import React from 'react'
 import { useForm, SubmitHandler } from "react-hook-form";
 
-type Inputs = {
-	title: string,
-	imageUrl: string,
-	description: string,
-};
+
 
 function AddBlog() {
 	const { data: user } = useSession();
@@ -31,7 +28,7 @@ function AddBlog() {
 	}
 
 	return (
-		<div className='mx-[40px] h-screen '>
+		<div className='mx-[40px]'>
 			<div className='flex flex-col px-6'>
 				<h2 className='mb-10 text-2xl font-semibold'>Add Blogs</h2>
 				<div className="flex flex-col gap-2">

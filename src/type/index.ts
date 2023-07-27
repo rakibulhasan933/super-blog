@@ -27,3 +27,17 @@ export interface deleteBlogsProps {
 	id: string;
 	title: string;
 }
+
+export interface PopupProps {
+	isOpen: boolean;
+	onClose: () => void;
+	deleteId: string;
+	deleteTitle: string;
+	email: string;
+	userSender: (email: string) => Promise<Error | undefined>
+};
+export interface Inputs {
+	title: string,
+	imageUrl: string,
+	description: string,
+};

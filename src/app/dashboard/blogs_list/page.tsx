@@ -3,7 +3,7 @@ import Popup from '@/components/Popup';
 import { BlogProps, deleteBlogsProps } from '@/type';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MdDeleteOutline } from 'react-icons/md'
 import { MdSecurityUpdateGood } from 'react-icons/md'
 
@@ -41,6 +41,11 @@ async function BlogsList() {
       return new Error("Failed Fetch Error");
     }
   };
+
+  useEffect(() => {
+    userSender(email);
+  }, [email]);
+
   return (
     <div className=''>
       <h2 className="flex justify-start my-3 text-2xl"> Your blogs list</h2>
@@ -60,12 +65,11 @@ async function BlogsList() {
                   <button onClick={() => handleOpenPopup(item.id as string, item.title)} className='mx-4 my-2 text-4xl text-red-500'><MdDeleteOutline /></button>
                 </div>
               </div>
-              <Popup deleteId={deleteId} deleteTitle={deleteTitle} isOpen={isPopupOpen} onClose={handleClosePopup} />
+              <Popup userSender={userSender} email={email} deleteId={deleteId} deleteTitle={deleteTitle} isOpen={isPopupOpen} onClose={handleClosePopup} />
             </div>
           ))
         }
       </div>
-      <button className='flex items-center justify-center px-4 py-2 mx-8 mt-8 font-medium rounded-md bg-gradient-to-r from-green-400 to-blue-500' onClick={() => userSender(email)} >Refresh</button>
     </div>
   )
 }
