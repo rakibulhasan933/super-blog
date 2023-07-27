@@ -1,6 +1,6 @@
 'use client';
 import Popup from '@/components/Popup';
-import { BlogProps, deleteBlogsProps } from '@/type';
+import { BlogProps } from '@/type';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
