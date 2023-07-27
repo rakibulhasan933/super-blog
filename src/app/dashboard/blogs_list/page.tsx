@@ -3,6 +3,8 @@ import Popup from '@/components/Popup';
 import { BlogProps } from '@/type';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { MdDeleteOutline } from 'react-icons/md'
 import { MdSecurityUpdateGood } from 'react-icons/md'
@@ -14,6 +16,8 @@ async function BlogsList() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [deleteId, setDeletedId] = useState("");
   const [deleteTitle, setDeletedTitle] = useState("");
+
+  const router = useRouter();
 
   const handleOpenPopup = (id: string, title: string) => {
     setIsPopupOpen(true);
@@ -61,7 +65,7 @@ async function BlogsList() {
                 <h4 className="text-sm font-normal ">{item.description}</h4>
                 <h4 className="text-xs font-medium text-blue-500">{item.createdTime}</h4>
                 <div className="flex flex-row gap-4">
-                  <button className='mx-4 my-2 text-4xl text-green-500'><MdSecurityUpdateGood /></button>
+                  <Link href={`/dashboard/${item.id}`} className='mx-4 my-2 text-4xl text-green-500'><MdSecurityUpdateGood /></Link>
                   <button onClick={() => handleOpenPopup(item.id as string, item.title)} className='mx-4 my-2 text-4xl text-red-500'><MdDeleteOutline /></button>
                 </div>
               </div>
