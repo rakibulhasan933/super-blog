@@ -41,3 +41,6 @@ export interface Inputs {
 	imageUrl: string,
 	description: string,
 };
+export interface DataIProps {
+	updateBlog: BlogProps
+}
