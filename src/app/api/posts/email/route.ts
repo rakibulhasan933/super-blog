@@ -10,7 +10,7 @@ export const POST = async (request: any) => {
 	const sender: SenderProps = await request.json();
 	const senderEmail = sender?.email;
 	try {
-		const blog = await prisma.Blogs.findMany({
+		const blog = await prisma.blogs.findMany({
 			where: {
 				email: senderEmail,
 			}

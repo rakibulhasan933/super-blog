@@ -5,12 +5,13 @@ import { NextResponse } from "next/server";
 // Single Blog GET API
 // http://localhost:3000/api/posts/1234
 
-export const GET = async (request: any, { params }: ParamsIProps) => {
+export const GET = async (request: Request, { params }: ParamsIProps) => {
 
 	try {
 		const { id } = params;
-
-		const blog = await prisma.Blogs.findUnique({
+		// Params
+		// const paramsId = request.url.slice(request.url.lastIndexOf('/') + 1);
+		const blog = await prisma.blogs.findUnique({
 			where: {
 				id,
 			}
@@ -38,7 +39,7 @@ export const PATCH = async (request: any, { params }: ParamsIProps) => {
 
 		const { id } = params;
 
-		const updatedBlog = await prisma.Blogs.update({
+		const updatedBlog = await prisma.blogs.update({
 			where: {
 				id
 			},
@@ -62,12 +63,12 @@ export const PATCH = async (request: any, { params }: ParamsIProps) => {
 // Single Blog Delete API
 // http://localhost:3000/api/posts/1234
 
-export const DELETE = async (request: any, { params }: ParamsIProps) => {
+export const DELETE = async (request: Request, { params }: ParamsIProps) => {
 
 	try {
 		const { id } = params;
 
-		await prisma.Blogs.delete({
+		await prisma.blogs.delete({
 			where: {
 				id,
 			}
