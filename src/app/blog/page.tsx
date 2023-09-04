@@ -1,27 +1,27 @@
-import { BlogProps } from '@/type';
-import Image from 'next/image'
-import Link from 'next/link';
+// import { BlogProps } from '@/type';
+// import Image from 'next/image'
+// import Link from 'next/link';
 import React from 'react'
 
 
 // Blogs Data loaded
-async function getData() {
-	const res = await fetch("http://localhost:3000/api/posts", {
-		cache: "no-store",
-	});
-	if (!res.ok) {
-		throw new Error("Failed to fetch data");
-	}
-	return res.json();
-};
+// async function getData() {
+// 	const res = await fetch("http://localhost:3000/api/posts", {
+// 		cache: "no-store",
+// 	});
+// 	if (!res.ok) {
+// 		throw new Error("Failed to fetch data");
+// 	}
+// 	return res.json();
+// };
 
 
 async function Blog() {
-	const data: BlogProps[] = await getData();
+	// const data: BlogProps[] = await getData();
 	return (
 		<div className='m-10'>
 			<div className="grid grid-cols-3 gap-4">
-				{
+				{/* {
 					data && data.map((blog) => (
 						<section key={blog.id} className="flex flex-col border-2 rounded-lg">
 							<Link href={`blog/${blog?.id}`}>
@@ -36,7 +36,8 @@ async function Blog() {
 							</Link>
 						</section>
 					))
-				}
+				} */}
+				<h2>Hello</h2>
 			</div>
 		</div>
 	)
