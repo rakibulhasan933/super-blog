@@ -6,7 +6,7 @@ import React from 'react'
 
 // Blogs Data loaded
 async function getData() {
-	const res = await fetch("/api/posts", {
+	const res = await fetch("http://localhost:3000/api/posts", {
 		cache: "no-store",
 	});
 	if (!res.ok) {
