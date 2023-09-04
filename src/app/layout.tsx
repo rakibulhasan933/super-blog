@@ -4,6 +4,7 @@ import { Manrope } from 'next/font/google'
 import Footer from '@/components/Footer'
 import Providers from '@/components/Providers'
 import AuthProvider from '@/components/AuthProvider'
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Manrope({ subsets: ['latin'] })
 
@@ -25,6 +26,7 @@ export default function RootLayout({
             <div className='mx-40'>
               <Navbar />
               {children}
+              <Analytics />
               <Footer />
             </div>
           </AuthProvider>
