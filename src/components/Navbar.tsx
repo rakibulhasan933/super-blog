@@ -1,44 +1,18 @@
-"use client";
 import Link from 'next/link'
 import React from 'react'
 import DarkModeToggle from './DarkModeToggle';
-import { useSession, signIn, signOut } from "next-auth/react"
+// import { useSession, signIn, signOut } from "next-auth/react"
 import Image from 'next/image';
-import { usePathname } from 'next/navigation'
-import { DashBoardProps } from '@/type';
+import { getServerSession } from "next-auth/next"
+import { options } from '@/app/api/auth/[...nextauth]/options';
+import NavbarItem from './NavbarItem';
 
-const links: DashBoardProps[] = [
-	{
-		id: 1,
-		href: "/",
-		title: "Home"
-	},
-	{
-		id: 2,
-		href: "/about",
-		title: "About"
-	},
-	{
-		id: 3,
-		href: "/blog",
-		title: "Blogs"
-	},
-	{
-		id: 4,
-		href: "/contact",
-		title: "Contacts"
-	},
-	{
-		id: 5,
-		href: "/dashboard",
-		title: "Dashboard"
-	}
-];
 
-function Navbar() {
-	const pathname = usePathname()
-	const { data } = useSession();
-	const userEmail = data?.user?.email;
+
+async function Navbar() {
+	const session = await getServerSession(options);
+	console.log(session?.user?.email)
+	const userEmail = session?.user?.email;
 
 	return (
 		<div>
@@ -52,33 +26,31 @@ function Navbar() {
 							<li>
 								<DarkModeToggle />
 							</li>
-							{
-								links.map((link) => <li key={link.id} className={pathname === link.href ? "text-blue-900" : ""}><Link className='font-semibold' href={link.href}>{link.title}</Link></li>)
-							}
+							<NavbarItem />
 							{userEmail ? <li>
 								{userEmail &&
 									<div className="my-2 dropdown dropdown-end">
 										<label tabIndex={1} className="btn btn-ghost btn-circle avatar">
 											<div className="w-10 rounded-full">
-												<Image src={data.user?.image as string} alt='man' width={50} height={50} />
+												<Image src={session.user?.image as string} alt='man' width={50} height={50} />
 											</div>
 										</label>
 										<ul tabIndex={1} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
 											<li>
 												<a className="justify-between">
-													{data.user?.name}
+													{session.user?.name}
 													<span className="badge">New</span>
 												</a>
 											</li>
 											<li><Link href={'/dashboard'}>Dashboard</Link></li>
-											<li><button onClick={() => signOut()} >Logout</button></li>
+											<li><Link href="/api/auth/signout" >Logout</Link></li>
 										</ul>
 									</div>
 								}
 							</li> :
-								<li className='font-bold text-white rounded bg-gradient-to-r from-green-400 to-blue-500 group'><button onClick={() => signIn()}>
+								<li className='font-bold text-white rounded bg-gradient-to-r from-green-400 to-blue-500 group'><Link href="/api/auth/signin">
 									Login
-								</button></li>
+								</Link></li>
 							}
 						</ul>
 					</div>
@@ -89,33 +61,31 @@ function Navbar() {
 						<li>
 							<DarkModeToggle />
 						</li>
-						{
-							links.map((link) => <li key={link.id} className={pathname === link.href ? "text-blue-800 bg-blue-200 rounded" : ""}><Link className='font-semibold' href={link.href}>{link.title}</Link></li>)
-						}
+						<NavbarItem />
 						{userEmail ? <li>
 							{userEmail &&
 								<div className="dropdown dropdown-end">
 									<label tabIndex={0} className="btn btn-ghost btn-circle avatar">
 										<div className="w-10 rounded-full">
-											<Image src={data.user?.image as string} alt='man' width={50} height={50} />
+											<Image src={session.user?.image as string} alt='man' width={50} height={50} />
 										</div>
 									</label>
 									<ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
 										<li>
 											<a className="justify-between">
-												{data.user?.name}
+												{session.user?.name}
 												<span className="badge">New</span>
 											</a>
 										</li>
 										<li><Link href={'/dashboard'}>Dashboard</Link></li>
-										<li><button onClick={() => signOut()} >Logout</button></li>
+										<li><Link href="/api/auth/signout" >Logout</Link></li>
 									</ul>
 								</div>
 							}
 						</li> :
-							<li className='font-bold text-white rounded bg-gradient-to-r from-green-400 to-blue-500 group'><button onClick={() => signIn()}>
+							<li className='font-bold text-white rounded bg-gradient-to-r from-green-400 to-blue-500 group'><Link href="/api/auth/signin">
 								Login
-							</button></li>
+							</Link></li>
 						}
 					</ul>
 				</div>
