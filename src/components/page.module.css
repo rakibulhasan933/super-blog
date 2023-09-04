@@ -1,0 +1,15 @@
+.image {
+	object-fit: contain;
+	animation: move 3s infinite ease alternate;
+	height: auto;
+}
+
+@keyframes move {
+	from {
+		transform: translateY(-15px);
+	}
+
+	to {
+		transform: translateY(0px) scale(1.03);
+	}
+}
