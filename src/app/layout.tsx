@@ -1,9 +1,6 @@
-import Navbar from '@/components/Navbar'
 import './globals.css'
 import { Manrope } from 'next/font/google'
-import Footer from '@/components/Footer'
-import Providers from '@/components/Providers'
-import AuthProvider from '@/components/AuthProvider'
+
 
 const inter = Manrope({ subsets: ['latin'] })
 
@@ -20,15 +17,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>
-          <AuthProvider>
-            <div className='mx-40'>
-              <Navbar />
-              {children}
-              <Footer />
-            </div>
-          </AuthProvider>
-        </Providers>
+
+        <div className='mx-40'>
+
+          {children}
+
+        </div>
       </body>
     </html>
   )
