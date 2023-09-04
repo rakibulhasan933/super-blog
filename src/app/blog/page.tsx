@@ -5,7 +5,7 @@ import React from 'react'
 
 
 // Blogs Data loaded
-export async function getData() {
+async function getData() {
 	const res = await fetch("https://throughfulpen.vercel.app/api/posts", {
 		cache: "no-store",
 	});
