@@ -2,7 +2,7 @@ import UpdateForm from '@/components/UpdateForm';
 import { BlogProps, ParamsIProps } from '@/type';
 
 async function getSingleBlog(id: string) {
-	const res = await fetch(`http://localhost:3000/api/posts/${id}`);
+	const res = await fetch(`https://throughfulpen.vercel.app/api/posts/${id}`);
 	return res.json();
 }
 

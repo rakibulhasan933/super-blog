@@ -4,7 +4,7 @@ import React from 'react'
 
 
 async function getBlog(id: string) {
-	const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
+	const res = await fetch(`https://throughfulpen.vercel.app/api/posts/${id}`, {
 		cache: "no-store"
 	});
 	if (!res.ok) {

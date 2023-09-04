@@ -3,7 +3,7 @@ import { BlogProps } from '@/type';
 import { NextResponse } from "next/server";
 
 // ALL Blog GET API
-// http://localhost:3000/api/posts
+// https://throughfulpen.vercel.app/api/posts
 
 export const GET = async (request: Request) => {
 	try {
@@ -14,7 +14,7 @@ export const GET = async (request: Request) => {
 	}
 }
 //  Blog POST API
-// http://localhost:3000/api/posts
+// https://throughfulpen.vercel.app/api/posts
 export const POST = async (request: Request) => {
 
 	try {

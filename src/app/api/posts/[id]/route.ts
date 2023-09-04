@@ -3,7 +3,7 @@ import { BlogProps, ParamsIProps } from '@/type';
 import { NextResponse } from "next/server";
 
 // Single Blog GET API
-// http://localhost:3000/api/posts/1234
+// https://throughfulpen.vercel.app/api/posts/1234
 
 export const GET = async (request: Request, { params }: ParamsIProps) => {
 
@@ -28,7 +28,7 @@ export const GET = async (request: Request, { params }: ParamsIProps) => {
 };
 
 // Single Blog Updated API
-// http://localhost:3000/api/posts/1234
+// https://throughfulpen.vercel.app/api/posts/1234
 
 export const PATCH = async (request: any, { params }: ParamsIProps) => {
 
@@ -61,7 +61,7 @@ export const PATCH = async (request: any, { params }: ParamsIProps) => {
 };
 
 // Single Blog Delete API
-// http://localhost:3000/api/posts/1234
+// https://throughfulpen.vercel.app/api/posts/1234
 
 export const DELETE = async (request: Request, { params }: ParamsIProps) => {
 
