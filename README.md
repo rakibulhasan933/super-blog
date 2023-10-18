@@ -1,4 +1,4 @@
-[The Throughoutfull Pen][livesite] 
+The Throughoutfull Pen
 
-[livesite]:https://thethroughtfulpen.vercel.app
+[livesite](https://thethroughtfulpen.vercel.app)
 
