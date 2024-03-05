@@ -1,3 +1,3 @@
-#### The Throughoutfull Pen (Blog Website)
+#### The Throughoutfull Pen
 
 ## [Site](https://thethroughtfulpen.vercel.app)
