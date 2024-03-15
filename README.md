@@ -1,3 +1,3 @@
 #### The Throughoutfull Pen
 
-## [VISIT](https://thethroughtfulpen.vercel.app)
+## [Live](https://thethroughtfulpen.vercel.app)
